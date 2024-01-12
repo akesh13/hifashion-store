@@ -1,5 +1,7 @@
 import { Inter } from 'next/font/google'
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import './globals.css'
+import Provider from './Provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,8 +12,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html suppressHydrationWarning lang="en">
+      <body className={inter.className}>
+        <AppRouterCacheProvider options={{enableCssLayer :  true}}>
+          <Provider>
+            {children}
+          </Provider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   )
 }

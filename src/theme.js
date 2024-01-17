@@ -2,18 +2,22 @@
 import {createTheme} from "@mui/material/styles"
 const theme = createTheme({
     typography:{
+        fontFamily:"Montserrat, sans-serif",
+        fontSize:"16px",
         h1:{
-           
+            fontSize:"1.4rem"
         }
-            },
+    },
+    palette:{
+primary:{
+    main:"#023020"
+}
+    },
 components:{
     MuiButton:{
         styleOverrides:{
             root:{
-                borderRadius:"100%",
-                "&:hover":{
-                    backgroundColor:"red"
-                }
+                borderRadius:"18px",
             }
         }
     }

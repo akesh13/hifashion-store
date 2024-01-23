@@ -3,7 +3,7 @@ import {createTheme} from "@mui/material/styles"
 const theme = createTheme({
     typography:{
         fontFamily:"Montserrat, sans-serif",
-        fontSize:"16px",
+        fontSize:16,
         h1:{
             fontSize:"1.4rem"
         }

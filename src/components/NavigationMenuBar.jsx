@@ -1,7 +1,10 @@
+"use client"
+import theme from '@/theme'
 import { AppBar, Box, Typography } from '@mui/material'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
-const menu = [
+const menus = [
     {
         id:"men",
         name:"For Him",
@@ -20,22 +23,24 @@ const menu = [
 ]
 
 function NavigationMenuBar() {
+    const router = useRouter()
   return (
-    <AppBar sx={{display:"inline-flex", justifyContent:"space-between", alignItems:"center", flexWrap:"nowrap"}}>
-        <Box>
-        <Typography variant='h1'>hi.fashion</Typography>
-        </Box>
-        <Box sx={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
-            {
-                menu.map((menu) => (
-                    <React.Fragment key={menu.id}>
-                        <Typography>{menu.name}</Typography>
-                    </React.Fragment>
-                ))
-            }
-
-        </Box>
-    </AppBar>
+    <>
+ <AppBar sx={{display:"flex"}}>
+    <Box>
+        Hello
+    </Box>
+    <Box sx={{display:"flex", justifyContent:"start", alignItems:"center", columnGap:4}}>
+ {
+    menus.map((menu) => (
+        <React.Fragment key={menu.id}>
+            <Typography onClick={() => router.push(`${menu.href}`)}>{menu.name}</Typography>
+            </React.Fragment>
+    ))
+ }
+ </Box>
+ </AppBar>
+ </>
   )
 }
 

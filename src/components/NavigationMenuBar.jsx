@@ -27,7 +27,7 @@ function NavigationMenuBar() {
   return (
     <>
       <AppBar sx={{ display: "flex" }}>
-        <Box>Hello</Box>
+        <Box>wtf this is not working</Box>
         <Box
           sx={{
             display: "flex",

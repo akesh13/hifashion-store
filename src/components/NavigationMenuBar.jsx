@@ -1,6 +1,6 @@
 "use client";
 import theme from "@/theme";
-import { AppBar, Box, Typography } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -26,25 +26,68 @@ function NavigationMenuBar() {
   const router = useRouter();
   return (
     <>
-      <AppBar sx={{ display: "flex" }}>
-        <Box>wtf this is not working</Box>
-        <Box
+      <Grid
+        container
+        sx={{
+          // backgroundColor: theme.palette.primary.main,
+          // color: "white",
+          padding: "18px 48px",
+        }}
+      >
+        <Grid item md={4} lg={4}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              // justifyContent: "space-between",
+              columnGap: 4,
+            }}
+          >
+            {menus.map((menu) => (
+              <React.Fragment key={menu.id}>
+                <Typography
+                  fontWeight={theme.typography.fontWeightMedium}
+                  onClick={() => router.push(`${menu.href}`)}
+                >
+                  {menu.name}
+                </Typography>
+              </React.Fragment>
+            ))}
+          </Box>
+        </Grid>
+        <Grid
+          item
+          md={4}
+          lg={4}
           sx={{
             display: "flex",
-            justifyContent: "start",
+            justifyContent: "center",
             alignItems: "center",
-            columnGap: 4,
           }}
         >
-          {menus.map((menu) => (
-            <React.Fragment key={menu.id}>
-              <Typography onClick={() => router.push(`${menu.href}`)}>
-                {menu.name}
-              </Typography>
-            </React.Fragment>
-          ))}
-        </Box>
-      </AppBar>
+          <Typography
+            sx={{
+              fontFamily: "henri",
+              // fontWeight: 800,
+              fontSize: "24px",
+            }}
+          >
+            HI FASHION
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          md={4}
+          lg={4}
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+          }}
+        >
+          <Typography fontFamily="Poppins">icons</Typography>
+        </Grid>
+      </Grid>
     </>
   );
 }

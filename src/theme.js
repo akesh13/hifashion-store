@@ -2,8 +2,11 @@
 import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   typography: {
-    fontFamily: "Montserrat, sans-serif",
+    fontFamily: "Poppins, sans-serif",
     fontSize: 16,
+    fontWeightRegular: 400,
+    fontWeightMedium: 600,
+    fontWeightBold: 800,
     h1: {
       fontSize: "1.4rem",
     },

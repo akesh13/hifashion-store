@@ -1,7 +1,8 @@
 "use client";
 import theme from "@/theme";
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid, Box, Typography, Button } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import React from "react";
 
 const menus = [
@@ -29,8 +30,6 @@ function NavigationMenuBar() {
       <Grid
         container
         sx={{
-          // backgroundColor: theme.palette.primary.main,
-          // color: "white",
           padding: "18px 48px",
         }}
       >
@@ -46,6 +45,7 @@ function NavigationMenuBar() {
             {menus.map((menu) => (
               <React.Fragment key={menu.id}>
                 <Typography
+                  fontSize={"14px"}
                   fontWeight={theme.typography.fontWeightMedium}
                   onClick={() => router.push(`${menu.href}`)}
                 >
@@ -85,7 +85,19 @@ function NavigationMenuBar() {
             alignItems: "center",
           }}
         >
-          <Typography fontFamily="Poppins">icons</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              // justifyContent: "space-between",
+              alignItems: "center",
+              columnGap: 4,
+              fontSize: 18,
+            }}
+          >
+            <CiSearch />
+            <CiUser />
+            <CiShoppingCart />
+          </Box>
         </Grid>
       </Grid>
     </>

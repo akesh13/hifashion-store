@@ -1,8 +1,13 @@
 "use client";
 import React from "react";
-import { Box } from "@mui/material";
 import Image from "next/image";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const images = [
   {
@@ -47,20 +52,17 @@ function SwipeableDisplay() {
   return (
     <>
       <Swiper
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          columnGap: 4,
-          maxWidth: "90%",
-          overflowX: "scroll",
-        }}
-        spaceBetween={20}
-        slidesPerView={1}
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={10}
+        slidesPerView={6}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
       >
-        {images.map((item) => (
-          <SwiperSlide key={item.id}>
-            <Image src={item.image} width={200} height={300} alt="display" />
+        {images.map((image) => (
+          <SwiperSlide key={image.id}>
+            <Image src={image.image} width={200} height={300} alt="display" />
           </SwiperSlide>
         ))}
       </Swiper>

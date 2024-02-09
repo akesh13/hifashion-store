@@ -1,13 +1,20 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Typography, Box } from "@mui/material";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectFade,
+} from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/css/bundle";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import "swiper/css/scrollbar";
 
 const images = [
   {
@@ -51,18 +58,54 @@ const images = [
 function SwipeableDisplay() {
   return (
     <>
+      <Typography
+        sx={{
+          fontFamily: "earfline",
+          fontWeight: "",
+          fontSize: "48px",
+        }}
+      >
+        For Him
+      </Typography>
       <Swiper
-        // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={10}
-        slidesPerView={6}
+        slidesPerView={3}
         navigation
+        centeredSlides
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
       >
         {images.map((image) => (
           <SwiperSlide key={image.id}>
-            <Image src={image.image} width={200} height={300} alt="display" />
+            <Image src={image.image} width={400} height={500} alt="display" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Typography
+        sx={{
+          fontFamily: "earfline",
+          fontWeight: "",
+          fontSize: "48px",
+        }}
+      >
+        For Her
+      </Typography>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={30}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+      >
+        {images.map((image) => (
+          <SwiperSlide key={image.id}>
+            <Box
+              sx={{
+                border: "4px solid black",
+              }}
+            >
+              <Image src={image.image} width={400} height={500} alt="display" />
+            </Box>
           </SwiperSlide>
         ))}
       </Swiper>

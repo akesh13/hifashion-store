@@ -98,14 +98,25 @@ function SwipeableDisplay() {
         pagination={{ clickable: true }}
       >
         {images.map((image) => (
-          <SwiperSlide key={image.id}>
-            <Box
-              sx={{
-                border: "4px solid black",
+          <SwiperSlide
+            style={{
+              borderRadius: "24px",
+              border: "2px solid black",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            key={image.id}
+          >
+            <Image
+              src={image.image}
+              width={400}
+              height={500}
+              style={{
+                objectFit: "inherit",
               }}
-            >
-              <Image src={image.image} width={400} height={500} alt="display" />
-            </Box>
+              alt="display"
+            />
           </SwiperSlide>
         ))}
       </Swiper>

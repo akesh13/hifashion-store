@@ -19,7 +19,7 @@ import "swiper/css/bundle";
 const images = [
   {
     id: 1,
-    image: "https://picsum.photos/300/200",
+    image: "http://placekitten.com/200/300",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const images = [
   },
   {
     id: 3,
-    image: "https://picsum.photos/300/200",
+    image: "http://satyr.io/200x300",
   },
   {
     id: 4,
@@ -113,7 +113,7 @@ function SwipeableDisplay() {
               width={400}
               height={500}
               style={{
-                objectFit: "inherit",
+                objectFit: "cover",
               }}
               alt="display"
             />

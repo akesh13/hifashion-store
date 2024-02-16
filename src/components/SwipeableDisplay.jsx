@@ -1,13 +1,25 @@
 "use client";
 import React from "react";
-import { Box } from "@mui/material";
 import Image from "next/image";
+import { Typography, Box } from "@mui/material";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectFade,
+} from "swiper/modules";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/bundle";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import "swiper/css/scrollbar";
 
 const images = [
   {
     id: 1,
-    image: "https://picsum.photos/300/200",
+    image: "http://placekitten.com/200/300",
   },
   {
     id: 2,
@@ -15,7 +27,7 @@ const images = [
   },
   {
     id: 3,
-    image: "https://picsum.photos/300/200",
+    image: "http://satyr.io/200x300",
   },
   {
     id: 4,
@@ -46,21 +58,65 @@ const images = [
 function SwipeableDisplay() {
   return (
     <>
-      <Swiper
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          columnGap: 4,
-          maxWidth: "90%",
-          overflowX: "scroll",
+      <Typography
+        sx={{
+          fontFamily: "earfline",
+          fontWeight: "",
+          fontSize: "48px",
         }}
-        spaceBetween={20}
-        slidesPerView={1}
       >
-        {images.map((item) => (
-          <SwiperSlide key={item.id}>
-            <Image src={item.image} width={200} height={300} alt="display" />
+        For Him
+      </Typography>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={10}
+        slidesPerView={3}
+        navigation
+        centeredSlides
+        pagination={{ clickable: true }}
+      >
+        {images.map((image) => (
+          <SwiperSlide key={image.id}>
+            <Image src={image.image} width={400} height={500} alt="display" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Typography
+        sx={{
+          fontFamily: "earfline",
+          fontWeight: "",
+          fontSize: "48px",
+        }}
+      >
+        For Her
+      </Typography>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={30}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+      >
+        {images.map((image) => (
+          <SwiperSlide
+            style={{
+              borderRadius: "24px",
+              border: "2px solid black",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            key={image.id}
+          >
+            <Image
+              src={image.image}
+              width={400}
+              height={500}
+              style={{
+                objectFit: "cover",
+              }}
+              alt="display"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
